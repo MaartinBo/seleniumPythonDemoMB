@@ -15,3 +15,11 @@ Allure/
 
 test_website:
 http://www.seleniumdemo.com/
+
+To launch the tests with report use command:
+
+pytest --alluredir=path\seleniumPythonDemoMB\report
+
+to generate the report use:
+
+allure serve path/seleniumPythonDemoMB/report/

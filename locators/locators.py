@@ -13,7 +13,7 @@ class BillingAddressLocators:
     postcode_input = (By.ID, "billing_postcode")
     city_input = (By.ID, "billing_city")
     phone_input = (By.ID, "billing_phone")
-    save_address_button = (By.XPATH, "//button[@value='Save address']")
+    save_address_button = (By.XPATH, "//*[text()='Save address']")
     message_div = (By.XPATH, "//div[@class='woocommerce-message']")
 
 class MyAccountPage:
