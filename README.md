@@ -5,7 +5,7 @@ https://www.udemy.com/course/kurs-selenium-python/
 
 and further developed by Marcin.B
 
-Technologies that are used in that project:
+# Technologies that are used in that project:
 
 
 Python/
