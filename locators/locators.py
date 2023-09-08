@@ -25,15 +25,30 @@ class MyAccountPage:
     error_msg = (By.XPATH, "//ul[@class='woocommerce-error']//li")
     logout_link = (By.LINK_TEXT, "Logout")
 
+class ProductListPage:
+    product_price_xpath = "//h2[text()='{}']/ancestor::li//span[@class='woocommerce-Price-amount amount']"
+    product_button_xpath = "//h2[text()='"'{}'"']"
 
-    #
-    #
-    # driver.find_element(By.XPATH, "//span[text()='My account']").click()
-    #
-    #
-    # driver.get("http://seleniumdemo.com/?page_id=7")
-    # driver.find_element(By.ID, "reg_email").send_keys("testeroprogramowaniapython@gmail.com")
-    # driver.find_element(By.ID, "reg_password").send_keys("testeroprogramowaniapython")
-    # driver.find_element(By.ID, "reg_password").send_keys(Keys.ENTER)
-    # msg = "An account is already registered with your email address. Please log in."
-    # assert msg in driver.find_element(By.XPATH, "//ul[@class='woocommerce-error']//li").text
+class ProductPage:
+    add_to_cart_button = (By.NAME, "add-to-cart")
+    view_cart_button = (By.XPATH, "//div[@class='woocommerce-message']//a[text()='View cart']")
+
+class CartPage:
+    proceed_to_checkout_button = (By.PARTIAL_LINK_TEXT, "Proceed to checkout")
+
+class AddressDetailsPage:
+    first_name_input = (By.ID, "billing_first_name")
+    last_name_input = (By.ID, "billing_last_name")
+    company_name_input = (By.ID, "billing_company")
+    billing_country_select = (By.ID, "billing_country")
+    billing_address_input = (By.ID, "billing_address_1")
+    billing_post_code_input = (By.ID, "billing_postcode")
+    billing_city_input = (By.ID, "billing_city")
+    billing_phone_input = (By.ID, "billing_phone")
+    billing_email_input = (By.ID, "billing_email")
+    order_comments_input = (By.ID, "order_comments")
+    place_order_button = (By.ID, "place_order")
+
+class OrderDetailsPage:
+    order_notice =  (By.XPATH, "//div[@class='woocommerce-order']//p")
+    product_name = (By.XPATH, "//td[contains(@class, 'product-name')]")
