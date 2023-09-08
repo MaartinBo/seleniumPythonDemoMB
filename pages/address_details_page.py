@@ -1,4 +1,5 @@
 import logging
+import time
 
 import allure
 from selenium.webdriver.support import expected_conditions as EC
@@ -32,17 +33,29 @@ class AddressDetailsPage:
     def click_order_button_without_ex(self):
         self.logger.info("Clicking order button")
 
-        try:
-            # Wait for the place order button to be clickable
-            place_order_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable(self.driver.find_element(*self.place_order_button))
-            )
-            place_order_button.click()
-        except Exception as ex:
-            # Handle any exceptions here (e.g., StaleElementReferenceException)
-            self.logger.error("Error while clicking order button:", ex)
+        max_retries = 2  # Set the maximum number of retry attempts
+        retry_count = 0
 
-        self.logger.info("Clicking order button done")
+        while retry_count < max_retries:
+            try:
+                # Wait for the place order button to be clickable
+                place_order_button = WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable(self.driver.find_element(*self.place_order_button))
+                )
+                place_order_button.click()
+                break  # If successful, exit the loop
+            except Exception as ex:
+                # Handle any exceptions here (e.g., StaleElementReferenceException)
+                self.logger.info(f"Exception while clicking order button (Attempt {retry_count + 1}): {ex}")
+                retry_count += 1
+                if retry_count < max_retries:
+                    # Wait for a short time before the next retry
+                    time.sleep(1)
+
+        if retry_count == max_retries:
+            self.logger.error(f"Failed to click order button after {max_retries} attempts")
+        else:
+            self.logger.info("Clicking order button done")
 
     @allure.step("Filling all of the address details ")
     def fill_address_details(self, comments):
