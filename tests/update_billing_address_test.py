@@ -4,7 +4,8 @@ import allure
 import pytest
 
 from pages.billing_address_page import BillingAddressPage
-from pages.my_account_page import MyAccountPage
+from pages.my_account_page_unregistered import MyAccountPage
+from utils.generic_utils import generate_random_email_and_password
 
 
 @pytest.mark.usefixtures("setup")
@@ -13,10 +14,12 @@ class TestBillingData:
     @allure.title("Test for update billing address")
     @allure.description("Test for update billing address with the register new account")
     def test_update_billing_address(self):
-        email = str(random.randint(0, 10000)) + "testeroprogramowaniapython@gmail.com"
+        rand_info = generate_random_email_and_password()
+        email = rand_info['email']
+        password = rand_info['password']
         my_account_page = MyAccountPage(self.driver)
         my_account_page.open_page()
-        my_account_page.create_account(email, "testeroprogramowaniapython")
+        my_account_page.create_account(email, password)
         billing_address_page = BillingAddressPage(self.driver)
         billing_address_page.open_edit_billing_address()
         billing_address_page.set_personal_data("John", "Kowalski")

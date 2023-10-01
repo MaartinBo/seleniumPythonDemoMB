@@ -1,0 +1,59 @@
+INFO     WDM:logger.py:11 ====== WebDriver manager ======
+INFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+INFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+INFO     WDM:logger.py:11 There is no [win64] chromedriver "117.0.5938.92" for browser google-chrome "117.0.5938.92" in cache
+INFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+INFO     WDM:logger.py:11 WebDriver version 117.0.5938.92 selected
+INFO     WDM:logger.py:11 Modern chrome version https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+INFO     WDM:logger.py:11 About to download new driver from https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.92/win32/chromedriver-win32.zip
+INFO     WDM:logger.py:11 Driver downloading response is 200
+INFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+INFO     WDM:logger.py:11 Driver has been saved in cache [C:\Users\BigBe\.wdm\drivers\chromedriver\win64\117.0.5938.92]
+INFO     pages.product_list_page:product_list_page.py:20 Opening Products List Page
+INFO     pages.product_list_page:product_list_page.py:33 Validate product - Sunglasses actual price with expected price from excel
+INFO     pages.product_list_page:product_list_page.py:65 Validate product - Sunglasses actual price with expected price from excel done
+INFO     pages.product_list_page:product_list_page.py:25 Opening product - Sunglasses
+INFO     pages.product_list_page:product_list_page.py:29 Opening product - //h2[text()='Sunglasses']/ancestor::li//span[@class='woocommerce-Price-amount amount'] done
+INFO     pages.product_page:product_page.py:19 Adding product to cart
+INFO     pages.product_page:product_page.py:21 Adding product to cart done
+INFO     pages.product_page:product_page.py:25 Going to view cart page
+INFO     pages.product_page:product_page.py:27 Going to view cart page done
+INFO     pages.cart_page:cart_page.py:18 Opening address details page
+INFO     pages.cart_page:cart_page.py:20 Opening address details page done
+INFO     pages.address_details_page:address_details_page.py:62 Filling all of the address details
+INFO     pages.address_details_page:address_details_page.py:85 Filling all of the address details done
+INFO     pages.address_details_page:address_details_page.py:34 Clicking order button
+INFO     pages.address_details_page:address_details_page.py:49 Exception while clicking order button (Attempt 1): Message: stale element reference: stale element not found
+  (Session info: chrome=117.0.5938.92); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x0034CEB3+45171]
+	(No symbol) [0x002D9101]
+	(No symbol) [0x001CBE1D]
+	(No symbol) [0x001CF9A7]
+	(No symbol) [0x001D0D6A]
+	(No symbol) [0x001D0E10]
+	(No symbol) [0x00203A5C]
+	(No symbol) [0x0020268F]
+	(No symbol) [0x00200C7B]
+	(No symbol) [0x00200015]
+	(No symbol) [0x001F856A]
+	(No symbol) [0x0021B04C]
+	(No symbol) [0x001F7FA6]
+	(No symbol) [0x0021B2C4]
+	(No symbol) [0x0022DCFA]
+	(No symbol) [0x0021AE46]
+	(No symbol) [0x001F675E]
+	(No symbol) [0x001F78FD]
+	GetHandleVerifier [0x006054B9+2897529]
+	GetHandleVerifier [0x0064DC6B+3194411]
+	GetHandleVerifier [0x00647A41+3169281]
+	GetHandleVerifier [0x003D6130+606960]
+	(No symbol) [0x002E2E7C]
+	(No symbol) [0x002DF008]
+	(No symbol) [0x002DF12F]
+	(No symbol) [0x002D1827]
+	BaseThreadInitThunk [0x76F77BA9+25]
+	RtlInitializeExceptionChain [0x7743B79B+107]
+	RtlClearBits [0x7743B71F+191]
+
+INFO     pages.address_details_page:address_details_page.py:58 Clicking order button done
