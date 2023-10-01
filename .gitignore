@@ -3,3 +3,4 @@
 /tests/.pytest_cache/
 /.idea/
 /__pycache__/
+/report/
