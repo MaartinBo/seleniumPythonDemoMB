@@ -50,7 +50,7 @@ class AddressDetailsPage:
                 retry_count += 1
                 if retry_count < max_retries:
                     # Wait for a short time before the next retry
-                    time.sleep(1)
+                    time.sleep(2)
 
         if retry_count == max_retries:
             self.logger.error(f"Failed to click order button after {max_retries} attempts")

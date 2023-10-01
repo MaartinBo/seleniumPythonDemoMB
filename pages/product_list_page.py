@@ -18,7 +18,7 @@ class ProductListPage:
     @allure.step("Opening products list page")
     def open_products_list_page(self):
         self.logger.info("Opening Products List Page")
-        self.driver.get("http://seleniumdemo.com/?post_type=product")
+        self.driver.get("https://mb-qa.eu/shop/")
 
     @allure.step("Opening product")
     def open_product(self, product):
@@ -33,6 +33,7 @@ class ProductListPage:
         self.logger.info((f"Validate product - {product} actual price with expected price from excel"))
 
         xpath = self.product_price_xpath.format(product)
+
         product_price_elements = self.driver.find_elements(By.XPATH, xpath)
 
         formatted_expected_price_value = "{:.2f}".format(ExpectedPrice)
@@ -43,10 +44,10 @@ class ProductListPage:
             # If there are multiple elements, the product has a discount, so the second element is the actual price
             product_price_element = product_price_elements[1]
             actual_price = product_price_element.text
-            actual_price_trimmed = actual_price.replace(",", ".").replace(" zł", "")
+            actual_price_trimmed = actual_price.replace('$', '')
             print(actual_price_trimmed)
 
-            assert actual_price_trimmed == formatted_expected_price_value, f"Actual price: {actual_price_trimmed}, Expected price: {formatted_expected_price_value}"
+            assert actual_price_trimmed == formatted_expected_price_value, f"Actual price: {actual_price_trimmed} , Expected price: {formatted_expected_price_value}"
 
         elif len(product_price_elements) == 1:
             # Handle the case when there is a single matching element
@@ -54,7 +55,7 @@ class ProductListPage:
             actual_price = product_price_element.text
 
             # Remove the currency symbol and any extra characters
-            actual_price_trimmed = actual_price.replace(",", ".").replace(" zł", "")
+            actual_price_trimmed = actual_price.replace('$', '')
             print(actual_price_trimmed)
 
             assert actual_price_trimmed == formatted_expected_price_value, f"Actual price: {actual_price_trimmed}, Expected price: {formatted_expected_price_value}"
@@ -62,3 +63,4 @@ class ProductListPage:
             print("No matching element found with the price of Product Name")
 
         self.logger.info((f"Validate product - {product} actual price with expected price from excel done"))
+

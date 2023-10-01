@@ -6,13 +6,13 @@ from pages.cart_page import CartPage
 from pages.order_details_page import OrderDetailsPage
 from pages.product_list_page import ProductListPage
 from pages.product_page import ProductPage
-from utils.ExcelReader import ExcelReader
+from utils.excel_reader import ExcelReader
 
 
 @pytest.mark.usefixtures("setup")
 class TestCheckout:
 
-    @pytest.mark.parametrize("product", ExcelReader.get_products_data())
+    @pytest.mark.parametrize("product", ExcelReader.get_products_data(2))
     @allure.title("Checkout test with validate price")
     def test_checkout_product(self, product):
         product_list_page = ProductListPage(self.driver)
@@ -28,11 +28,10 @@ class TestCheckout:
         address_details_page.fill_address_details("lorem ipsum comments")
         address_details_page.click_order_button_without_ex()
         order_details_page = OrderDetailsPage(self.driver)
-
         order_notice = order_details_page.get_order_notice()
         expected_notice_msg = "Thank you. Your order has been received."
 
-        assert order_notice == expected_notice_msg, f"Expected text '{order_notice}' isn't equal to '{expected_notice_msg}'"
+        assert order_notice.strip() == expected_notice_msg.strip(), f"Expected text '{order_notice}' isn't equal to '{expected_notice_msg}'"
 
         product_notice = order_details_page.get_product_name()
-        assert product.Product in product_notice, f"Expected text '{product.Product}' not found in '{product_notice}'"
+        assert product.Product.strip() in product_notice.strip(), f"Expected text '{product.Product}' not found in '{product_notice}'"

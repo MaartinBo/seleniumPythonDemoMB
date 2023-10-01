@@ -5,7 +5,7 @@ class BillingAddressLocators:
     reg_email_input = (By.ID, "reg_email")
     reg_password_input = (By.ID, "reg_password")
     addresses_link = (By.LINK_TEXT, "Addresses")
-    edit_link = (By.LINK_TEXT, "Edit")
+    edit_link = (By.XPATH, "//a[contains(@href, 'edit-address/billing/')]")
     first_name_input = (By.ID, "billing_first_name")
     last_name_input = (By.ID, "billing_last_name")
     country_select = (By.ID, "billing_country")
@@ -23,11 +23,13 @@ class MyAccountPage:
     reg_password = (By.ID, "reg_password")
     my_account_link = (By.XPATH, "//span[text()='My account']")
     error_msg = (By.XPATH, "//ul[@class='woocommerce-error']//li")
-    logout_link = (By.LINK_TEXT, "Logout")
+    logout_link = (By.LINK_TEXT, "Log out")
 
 class ProductListPage:
     product_price_xpath = "//h2[text()='{}']/ancestor::li//span[@class='woocommerce-Price-amount amount']"
     product_button_xpath = "//h2[text()='"'{}'"']"
+    product_next_page_button = (By.PARTIAL_LINK_TEXT, "shop/page/{}")
+
 
 class ProductPage:
     add_to_cart_button = (By.NAME, "add-to-cart")
@@ -50,5 +52,5 @@ class AddressDetailsPage:
     place_order_button = (By.ID, "place_order")
 
 class OrderDetailsPage:
-    order_notice =  (By.XPATH, "//div[@class='woocommerce-order']//p")
+    order_notice = (By.XPATH, "//div[@class='woocommerce-order']//p")
     product_name = (By.XPATH, "//td[contains(@class, 'product-name')]")
