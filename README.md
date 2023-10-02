@@ -1,4 +1,4 @@
-# seleniumPythonDemoMB
+# seleniumPythonMB
 # Technologies that are used in that project:
 
 
@@ -12,8 +12,8 @@ https://mb-qa.eu/
 
 To launch the tests with report use command:
 
-pytest --alluredir=path\seleniumPythonDemoMB\report
+pytest --alluredir=path\seleniumPythonMB\report
 
 to generate the report use:
 
-allure serve path/seleniumPythonDemoMB/report/
+allure serve path/seleniumPythonMB/report/
