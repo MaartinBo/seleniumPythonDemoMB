@@ -9,6 +9,7 @@ from utils.generic_utils import generate_random_email_and_password
 
 
 @pytest.mark.usefixtures("setup")
+@pytest.mark.billing
 class TestBillingData:
 
     @allure.title("Test for update billing address")
