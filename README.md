@@ -1,4 +1,4 @@
-# SeleniumPythonMB
+# selenium_python_mb
 
 ## Technologies Used
 - Python
