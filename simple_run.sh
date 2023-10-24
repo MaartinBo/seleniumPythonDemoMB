@@ -7,7 +7,6 @@ TESTS_PATH="$(pwd)/tests"
 cd "$TESTS_PATH"
 
 # Run 'pytest' to execute all tests. You can also use the -m flag to specify which test cases you want to run.
-pytest -m checkout
+pytest -m login
 # list of all tags
 # 'login' 'checkout' `register` `billing`
-

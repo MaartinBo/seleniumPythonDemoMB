@@ -7,9 +7,6 @@ rem Change the current directory to the /tests folder
 cd /d "%TESTS_PATH%"
 
 rem Run 'pytest' to execute all tests. You can also use the -m flag to specify which test cases you want to run.
-pytest -m checkout
-
+pytest -m login
 rem List of available tags:
 rem 'login' 'checkout' 'register' 'billing'
-
-
