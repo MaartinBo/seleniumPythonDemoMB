@@ -3,9 +3,9 @@ import pytest
 
 from pages.my_account_page_unregistered import MyAccountPage
 
+pytestmark = [pytest.mark.login, pytest.mark.smoke]
 
 @pytest.mark.usefixtures("setup")
-@pytest.mark.login
 class TestLogIn:
 
     @allure.title("Test for log in that passed")
