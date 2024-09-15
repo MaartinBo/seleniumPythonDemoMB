@@ -8,6 +8,7 @@ from utils.generic_utils import generate_random_email_and_password
 
 pytestmark = [pytest.mark.register, pytest.mark.smoke]
 
+
 @pytest.mark.usefixtures("setup")
 class TestCreateAccount:
     @allure.title("Test for create account that failed")
@@ -22,8 +23,8 @@ class TestCreateAccount:
     @allure.title("Test for create account that passed")
     def test_create_account_passed(self):
         rand_info = generate_random_email_and_password()
-        email = rand_info['email']
-        password = rand_info['password']
+        email = rand_info["email"]
+        password = rand_info["password"]
         my_account_page = MyAccountPage(self.driver)
         my_account_page.open_page()
         my_account_page.create_account(email, password)

@@ -16,8 +16,8 @@ class TestBillingData:
     @allure.description("Test for update billing address with the register new account")
     def test_update_billing_address(self):
         rand_info = generate_random_email_and_password()
-        email = rand_info['email']
-        password = rand_info['password']
+        email = rand_info["email"]
+        password = rand_info["password"]
         my_account_page = MyAccountPage(self.driver)
         my_account_page.open_page()
         my_account_page.create_account(email, password)
@@ -29,4 +29,6 @@ class TestBillingData:
         billing_address_page.set_phone_number("111111111")
         billing_address_page.save_address()
 
-        assert "Address changed successfully." in billing_address_page.get_message_text()
+        assert (
+            "Address changed successfully." in billing_address_page.get_message_text()
+        )

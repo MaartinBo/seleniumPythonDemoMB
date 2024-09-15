@@ -16,6 +16,7 @@ class BillingAddressLocators:
     save_address_button = (By.XPATH, "//*[text()='Save address']")
     message_div = (By.XPATH, "//div[@class='woocommerce-message']")
 
+
 class MyAccountPage:
     username_input = (By.ID, "username")
     password_input = (By.ID, "password")
@@ -25,18 +26,26 @@ class MyAccountPage:
     error_msg = (By.XPATH, "//ul[@class='woocommerce-error']//li")
     logout_link = (By.LINK_TEXT, "Log out")
 
+
 class ProductListPage:
-    product_price_xpath = "//h2[text()='{}']/ancestor::li//span[@class='woocommerce-Price-amount amount']"
-    product_button_xpath = "//h2[text()='"'{}'"']"
+    product_price_xpath = (
+        "//h2[text()='{}']/ancestor::li//span[@class='woocommerce-Price-amount amount']"
+    )
+    product_button_xpath = "//h2[text()='" "{}" "']"
     product_next_page_button = (By.PARTIAL_LINK_TEXT, "shop/page/{}")
 
 
 class ProductPage:
     add_to_cart_button = (By.NAME, "add-to-cart")
-    view_cart_button = (By.XPATH, "//div[@class='woocommerce-message']//a[text()='View cart']")
+    view_cart_button = (
+        By.XPATH,
+        "//div[@class='woocommerce-message']//a[text()='View cart']",
+    )
+
 
 class CartPage:
     proceed_to_checkout_button = (By.PARTIAL_LINK_TEXT, "Proceed to checkout")
+
 
 class AddressDetailsPage:
     first_name_input = (By.ID, "billing_first_name")
@@ -50,6 +59,7 @@ class AddressDetailsPage:
     billing_email_input = (By.ID, "billing_email")
     order_comments_input = (By.ID, "order_comments")
     place_order_button = (By.ID, "place_order")
+
 
 class OrderDetailsPage:
     order_notice = (By.XPATH, "//div[@class='woocommerce-order']//p")

@@ -6,7 +6,7 @@ import locators.locators
 
 
 class MyAccountPage:
-    def __init__(self,driver):
+    def __init__(self, driver):
         self.driver = driver
         self.logger = logging.getLogger(__name__)
         # we don't really need to do this in that way, but this way makes it easier to see which locators are used in that

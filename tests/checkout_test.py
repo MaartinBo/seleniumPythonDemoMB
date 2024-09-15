@@ -19,7 +19,9 @@ class TestCheckout:
     def test_checkout_product(self, product):
         product_list_page = ProductListPage(self.driver)
         product_list_page.open_products_list_page()
-        product_list_page.validate_product_actual_price(product.Product, product.ExpectedPrice)
+        product_list_page.validate_product_actual_price(
+            product.Product, product.ExpectedPrice
+        )
         product_list_page.open_product(product.Product)
         product_page = ProductPage(self.driver)
         product_page.add_product_to_cart()
@@ -33,7 +35,11 @@ class TestCheckout:
         order_notice = order_details_page.get_order_notice()
         expected_notice_msg = "Thank you. Your order has been received."
 
-        assert order_notice.strip() == expected_notice_msg.strip(), f"Expected text '{order_notice}' isn't equal to '{expected_notice_msg}'"
+        assert (
+            order_notice.strip() == expected_notice_msg.strip()
+        ), f"Expected text '{order_notice}' isn't equal to '{expected_notice_msg}'"
 
         product_notice = order_details_page.get_product_name()
-        assert product.Product.strip() in product_notice.strip(), f"Expected text '{product.Product}' not found in '{product_notice}'"
+        assert (
+            product.Product.strip() in product_notice.strip()
+        ), f"Expected text '{product.Product}' not found in '{product_notice}'"

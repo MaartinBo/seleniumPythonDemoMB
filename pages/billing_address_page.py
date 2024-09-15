@@ -29,16 +29,23 @@ class BillingAddressPage:
         self.logger.info("Opening edit billing page")
         self.driver.find_element(*self.addresses_link).click()
         self.driver.find_element(*self.edit_link).click()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Opening edit billing address",
-                      attachment_type=AttachmentType.PNG)
+        allure.attach(
+            self.driver.get_screenshot_as_png(),
+            name="Opening edit billing address",
+            attachment_type=AttachmentType.PNG,
+        )
         self.logger.info("Opening edit billing page done")
 
     @allure.step("Setting personal data, first-name: '{1}' and last-name: {2}")
     def set_personal_data(self, first_name, last_name):
-        self.logger.info(f"Setting first name - {first_name} and last name - {last_name}")
+        self.logger.info(
+            f"Setting first name - {first_name} and last name - {last_name}"
+        )
         self.driver.find_element(*self.first_name_input).send_keys(first_name)
         self.driver.find_element(*self.last_name_input).send_keys(last_name)
-        self.logger.info(f"Setting first name - {first_name} and last name - {last_name} done")
+        self.logger.info(
+            f"Setting first name - {first_name} and last name - {last_name} done"
+        )
 
     @allure.step("Selecting country - '{1}'")
     def select_country(self, country):
@@ -49,11 +56,15 @@ class BillingAddressPage:
 
     @allure.step("Setting address, street - '{1} , postcode - {2} , city - {3} ")
     def set_address(self, street, postcode, city):
-        self.logger.info(f"Setting street - {street} postcode - {postcode} city - {city}")
+        self.logger.info(
+            f"Setting street - {street} postcode - {postcode} city - {city}"
+        )
         self.driver.find_element(*self.addresses_input).send_keys(street)
         self.driver.find_element(*self.postcode_input).send_keys(postcode)
         self.driver.find_element(*self.city_input).send_keys(city)
-        self.logger.info(f"Setting street - {street} postcode - {postcode} city - {city} done")
+        self.logger.info(
+            f"Setting street - {street} postcode - {postcode} city - {city} done"
+        )
 
     @allure.step("Selecting phone number - '{1}'")
     def set_phone_number(self, number):
@@ -64,8 +75,10 @@ class BillingAddressPage:
     @allure.step("Clicking save address button")
     def save_address(self):
         self.logger.info("Clicking save address button")
-        self.driver.execute_script("arguments[0].scrollIntoView(true);",
-                                   self.driver.find_element(*self.save_address_button))
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView(true);",
+            self.driver.find_element(*self.save_address_button),
+        )
         self.driver.find_element(*self.save_address_button).click()
         self.logger.info("Clicking save address button done")
 

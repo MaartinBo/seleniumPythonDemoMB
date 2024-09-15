@@ -18,16 +18,34 @@ class AddressDetailsPage:
         # pageobject, or we can assume that all locators in locators files are used, and we can reference directly in out methods to these locators,
         self.first_name_input = locators.locators.AddressDetailsPage.first_name_input
         self.last_name_input = locators.locators.AddressDetailsPage.last_name_input
-        self.company_name_input = locators.locators.AddressDetailsPage.company_name_input
-        self.billing_country_select = locators.locators.AddressDetailsPage.billing_country_select
-        self.billing_address_input = locators.locators.AddressDetailsPage.billing_address_input
-        self.billing_post_code_input = locators.locators.AddressDetailsPage.billing_post_code_input
-        self.billing_city_input = locators.locators.AddressDetailsPage.billing_city_input
-        self.billing_phone_input = locators.locators.AddressDetailsPage.billing_phone_input
-        self.billing_email_input = locators.locators.AddressDetailsPage.billing_email_input
-        self.order_comments_input = locators.locators.AddressDetailsPage.order_comments_input
+        self.company_name_input = (
+            locators.locators.AddressDetailsPage.company_name_input
+        )
+        self.billing_country_select = (
+            locators.locators.AddressDetailsPage.billing_country_select
+        )
+        self.billing_address_input = (
+            locators.locators.AddressDetailsPage.billing_address_input
+        )
+        self.billing_post_code_input = (
+            locators.locators.AddressDetailsPage.billing_post_code_input
+        )
+        self.billing_city_input = (
+            locators.locators.AddressDetailsPage.billing_city_input
+        )
+        self.billing_phone_input = (
+            locators.locators.AddressDetailsPage.billing_phone_input
+        )
+        self.billing_email_input = (
+            locators.locators.AddressDetailsPage.billing_email_input
+        )
+        self.order_comments_input = (
+            locators.locators.AddressDetailsPage.order_comments_input
+        )
 
-        self.place_order_button = locators.locators.AddressDetailsPage.place_order_button
+        self.place_order_button = (
+            locators.locators.AddressDetailsPage.place_order_button
+        )
 
     @allure.step("Opening address details page ")
     def click_order_button_without_ex(self):
@@ -40,20 +58,26 @@ class AddressDetailsPage:
             try:
                 # Wait for the place order button to be clickable
                 place_order_button = WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable(self.driver.find_element(*self.place_order_button))
+                    EC.element_to_be_clickable(
+                        self.driver.find_element(*self.place_order_button)
+                    )
                 )
                 place_order_button.click()
                 break  # If successful, exit the loop
             except Exception as ex:
                 # Handle any exceptions here (e.g., StaleElementReferenceException)
-                self.logger.info(f"Exception while clicking order button (Attempt {retry_count + 1}): {ex}")
+                self.logger.info(
+                    f"Exception while clicking order button (Attempt {retry_count + 1}): {ex}"
+                )
                 retry_count += 1
                 if retry_count < max_retries:
                     # Wait for a short time before the next retry
                     time.sleep(2)
 
         if retry_count == max_retries:
-            self.logger.error(f"Failed to click order button after {max_retries} attempts")
+            self.logger.error(
+                f"Failed to click order button after {max_retries} attempts"
+            )
         else:
             self.logger.info("Clicking order button done")
 
@@ -63,10 +87,14 @@ class AddressDetailsPage:
         customer = Customer()
         self.driver.find_element(*self.first_name_input).send_keys(customer.first_name)
         self.driver.find_element(*self.last_name_input).send_keys(customer.last_name)
-        self.driver.find_element(*self.company_name_input).send_keys(customer.company_name)
+        self.driver.find_element(*self.company_name_input).send_keys(
+            customer.company_name
+        )
 
         # Locate the billing country dropdown element
-        billing_country_dropdown = self.driver.find_element(*self.billing_country_select)
+        billing_country_dropdown = self.driver.find_element(
+            *self.billing_country_select
+        )
 
         # Create a Select object for the dropdown
         select = Select(billing_country_dropdown)
@@ -74,9 +102,13 @@ class AddressDetailsPage:
         # Select the option by visible text
         select.select_by_visible_text(customer.country)
 
-        self.driver.find_element(*self.billing_address_input).send_keys(f"{customer.street} {customer.flat_number}")
+        self.driver.find_element(*self.billing_address_input).send_keys(
+            f"{customer.street} {customer.flat_number}"
+        )
 
-        self.driver.find_element(*self.billing_post_code_input).send_keys(customer.zip_code)
+        self.driver.find_element(*self.billing_post_code_input).send_keys(
+            customer.zip_code
+        )
         self.driver.find_element(*self.billing_city_input).send_keys(customer.city)
         self.driver.find_element(*self.billing_phone_input).send_keys(customer.phone)
         self.driver.find_element(*self.billing_email_input).send_keys(customer.email)
