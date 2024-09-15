@@ -15,17 +15,14 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # Sprawdzenie kodu
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      # Ustawienie Pythona
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
 
-      # Cache pip dependencies (zależności)
       - name: Cache pip dependencies
         id: cache-pip
         uses: actions/cache@v3
@@ -35,13 +32,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      # Instalacja zależności
       - name: Install dependencies from requirements.txt
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      # Uruchomienie testów i generowanie raportu Allure
       - name: Run tests and generate Allure report
         run: |
           TESTS_PATH="$(pwd)/tests"
@@ -49,7 +44,6 @@ jobs:
           cd "$TESTS_PATH"
           pytest -m smoke --alluredir "$ALLURE_REPORT_DIR"
 
-      # Zapisanie raportu Allure jako artefakt
       - name: Archive Allure report
         uses: actions/upload-artifact@v4
         with:
