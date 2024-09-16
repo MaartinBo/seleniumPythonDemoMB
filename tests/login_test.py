@@ -1,6 +1,5 @@
 import allure
 import pytest
-
 from pages.my_account_page_unregistered import MyAccountPage
 
 pytestmark = [pytest.mark.login, pytest.mark.smoke]

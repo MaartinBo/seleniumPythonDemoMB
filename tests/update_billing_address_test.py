@@ -2,7 +2,6 @@ import random
 
 import allure
 import pytest
-
 from pages.billing_address_page import BillingAddressPage
 from pages.my_account_page_unregistered import MyAccountPage
 from utils.generic_utils import generate_random_email_and_password

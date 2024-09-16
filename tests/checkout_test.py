@@ -1,6 +1,5 @@
 import allure
 import pytest
-
 from pages.address_details_page import AddressDetailsPage
 from pages.cart_page import CartPage
 from pages.order_details_page import OrderDetailsPage
