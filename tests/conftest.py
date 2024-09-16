@@ -1,6 +1,7 @@
 import allure
 import pytest
 from allure_commons.types import AttachmentType
+
 from utils.driver_factory import DriverFactory
 
 

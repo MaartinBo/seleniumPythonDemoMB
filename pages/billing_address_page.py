@@ -1,4 +1,5 @@
 import logging
+
 import allure
 from allure_commons.types import AttachmentType
 from selenium.webdriver.support.select import Select

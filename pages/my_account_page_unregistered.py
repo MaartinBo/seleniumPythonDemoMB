@@ -1,6 +1,7 @@
+import logging
+
 import allure
 from selenium.webdriver import Keys
-import logging
 
 import locators.locators
 

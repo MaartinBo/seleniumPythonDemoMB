@@ -1,5 +1,6 @@
-import xlrd
 import random
+
+import xlrd
 
 from utils.search_data import SearchData
 
