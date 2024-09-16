@@ -2,6 +2,7 @@ import random
 
 import allure
 import pytest
+
 from pages.my_account_page_unregistered import MyAccountPage
 from utils.generic_utils import generate_random_email_and_password
 
@@ -10,6 +11,7 @@ pytestmark = [pytest.mark.register, pytest.mark.smoke]
 
 @pytest.mark.usefixtures("setup")
 class TestCreateAccount:
+    driver = None
     @allure.title("Test for create account that failed")
     def test_create_account_failed(self):
         my_account_page = MyAccountPage(self.driver)

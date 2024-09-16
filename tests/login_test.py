@@ -1,5 +1,6 @@
 import allure
 import pytest
+
 from pages.my_account_page_unregistered import MyAccountPage
 
 pytestmark = [pytest.mark.login, pytest.mark.smoke]
@@ -7,6 +8,7 @@ pytestmark = [pytest.mark.login, pytest.mark.smoke]
 
 @pytest.mark.usefixtures("setup")
 class TestLogIn:
+    driver = None
 
     @allure.title("Test for log in that passed")
     def test_log_in_passed(self):

@@ -2,6 +2,7 @@ import random
 
 import allure
 import pytest
+
 from pages.billing_address_page import BillingAddressPage
 from pages.my_account_page_unregistered import MyAccountPage
 from utils.generic_utils import generate_random_email_and_password
@@ -10,6 +11,7 @@ from utils.generic_utils import generate_random_email_and_password
 @pytest.mark.usefixtures("setup")
 @pytest.mark.billing
 class TestBillingData:
+    driver = None
 
     @allure.title("Test for update billing address")
     @allure.description("Test for update billing address with the register new account")

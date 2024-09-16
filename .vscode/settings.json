@@ -7,11 +7,12 @@
     }
   },
   "isort.args": ["--profile", "black"],
-  
+
   // Pylance Configuration
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.autoSearchPaths": true,
   "python.analysis.useLibraryCodeForTypes": true,
-  "python.analysis.diagnosticMode": "workspace"
+  "python.analysis.diagnosticMode": "workspace",
+  "cSpell.words": ["pytestmark"]
 }
