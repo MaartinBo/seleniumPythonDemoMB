@@ -1,5 +1,6 @@
 /.pytest_cache/
 /venv/
+/venv_sel_py/
 /tests/.pytest_cache/
 /.idea/
 /__pycache__/
