@@ -1,4 +1,4 @@
-class Customer:
+class Customer:  # pylint: disable=too-many-instance-attributes
     def __init__(self):
         self.first_name = "Marcin"
         self.last_name = "Testowy"
