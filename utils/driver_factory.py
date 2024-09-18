@@ -19,17 +19,21 @@ class DriverFactory:
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-gpu")
             options.add_argument("--window-size=1920,1080")
+            options.add_argument("--disable-extensions")
+            options.add_argument("--disable-infobars")
+            options.add_argument("--disable-notifications")
+            options.add_argument("--disable-browser-side-navigation")
+            options.add_argument("--disable-blink-features=AutomationControlled")
             options.add_experimental_option("excludeSwitches", ["enable-logging"])
             return webdriver.Chrome(
                 service=ChromeService(ChromeDriverManager().install()), options=options
             )
-        elif browser == "firefox":
+        if browser == "firefox":
             options = FirefoxOptions()
             options.add_argument("-headless")
             service = FirefoxService(
-                GeckoDriverManager().install(),
-                log_output=os.devnull #ignore firefox logs
+                GeckoDriverManager().install(), log_output=os.devnull  # ignore firefox logs
             )
-
             return webdriver.Firefox(service=service, options=options)
+
         raise Exception("Provide valid driver name")

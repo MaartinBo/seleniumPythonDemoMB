@@ -14,15 +14,14 @@ from utils.excel_reader import ExcelReader
 class TestCheckout:
     driver = None
 
+    # get_products_data(x)) x is the number of random products from that excel
+    # (utils/first_page_sample_single_products.xls) to test, 12 is the current max number
     @pytest.mark.parametrize("product", ExcelReader.get_products_data(2))
-    # get_products_data(x)) x is the number of random products from that excel (utils/first_page_sample_single_products.xls) to test, 12 is the current max number of products
     @allure.title("Checkout test with validate price")
     def test_checkout_product(self, product):
         product_list_page = ProductListPage(self.driver)
         product_list_page.open_products_list_page()
-        product_list_page.validate_product_actual_price(
-            product.Product, product.ExpectedPrice
-        )
+        product_list_page.validate_product_actual_price(product.Product, product.ExpectedPrice)
         product_list_page.open_product(product.Product)
         product_page = ProductPage(self.driver)
 

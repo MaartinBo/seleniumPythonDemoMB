@@ -1,0 +1,128 @@
+[MAIN]
+
+# Clear in-memory caches upon conclusion of linting.
+clear-cache-post-run=yes
+
+# Number of processes for linting (0 = auto-detect based on system cores).
+jobs=0
+
+# Ignore specific directories (e.g., virtual environments, test result folders).
+ignore=venv,venv_sel_py,__pycache__,.idea,.github,.vscode,.pytest_cache,allure-report
+
+# Limit inference to improve performance with complex codebases.
+limit-inference-results=100
+
+# Use stubs to avoid "no-member" errors.
+prefer-stubs=yes
+
+# Python version used for linting
+py-version=3.11
+
+
+[BASIC]
+
+# Naming conventions for Python code.
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+function-naming-style=snake_case
+method-naming-style=snake_case
+module-naming-style=snake_case
+variable-naming-style=snake_case
+
+# Allow some common, short variable names often used in loops or exceptions.
+good-names=i,j,k,ex,Run,_
+
+
+[FORMAT]
+
+# Maximum allowed line length.
+max-line-length=100
+
+# Indentation style.
+indent-string='    '
+
+
+[MESSAGES CONTROL]
+
+# Disable warnings that are often unnecessary in this project.
+disable=missing-docstring,  # Not needed in tests
+        invalid-name,  # Pytest uses function names that may not match the standard
+        too-few-public-methods,  # Test classes usually don't need many public methods
+        no-member,  # Often occurs with dynamic attributes in Selenium
+        protected-access,  # Test code often accesses protected members for setup
+        attribute-defined-outside-init,  # Selenium setup in test cases might define attributes dynamically
+        E1205  # Disable too many arguments for logging format string
+
+# Enable some specific checks if needed.
+# enable=
+
+
+[EXCEPTIONS]
+
+# Overgeneral exceptions to avoid (e.g., catching all exceptions with "Exception").
+overgeneral-exceptions=builtins.BaseException
+
+
+[VARIABLES]
+
+# Allow unused arguments in test fixtures (commonly used in pytest fixtures).
+ignored-argument-names=_.*,^unused_
+
+
+[LOGGING]
+
+# Set logging style to new format (`{}`), which is often used in modern Python projects.
+logging-format-style=new
+
+
+[IMPORTS]
+
+# Allow third-party imports to be imported at any level.
+known-third-party=selenium,pytest,allure
+
+# Import settings to ignore dynamic imports (often used with Selenium).
+ignored-modules=pytest,allure,selenium.webdriver
+
+
+[TYPECHECK]
+
+# Ignore missing members in certain classes commonly used in test frameworks.
+ignored-classes=optparse.Values,thread._local,_thread._local,argparse.Namespace
+
+# Dynamically generated members (e.g., Selenium WebDriver).
+generated-members=selenium.webdriver.*
+
+
+[REPORTS]
+
+# Disable Pylint's detailed report to avoid unnecessary output.
+reports=no
+
+# Activate the evaluation score.
+score=yes
+
+
+[DESIGN]
+
+# Allow more arguments for test functions (Selenium tests may have many arguments).
+max-args=10
+
+# Maximum number of branches for complex test logic.
+max-branches=15
+
+# Maximum number of return/yield statements in functions/methods.
+max-returns=6
+
+# Maximum number of local variables in test functions.
+max-locals=20
+
+# Allow more statements in test functions (since they may contain many steps).
+max-statements=100
+
+
+[MISCELLANEOUS]
+
+# Tags to track comments for future work (e.g., TODOs).
+notes=FIXME,XXX,TODO

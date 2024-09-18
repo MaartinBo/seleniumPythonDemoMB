@@ -1,5 +1,3 @@
-import random
-
 import allure
 import pytest
 
@@ -30,6 +28,4 @@ class TestBillingData:
         billing_address_page.set_phone_number("111111111")
         billing_address_page.save_address()
 
-        assert (
-            "Address changed successfully." in billing_address_page.get_message_text()
-        )
+        assert "Address changed successfully." in billing_address_page.get_message_text()

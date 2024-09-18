@@ -12,9 +12,7 @@ def generate_random_email_and_password(domain=None, email_prefix=None):
         email_prefix = "testuser"
 
     random_email_sting_length = 10
-    random_string = "".join(
-        random.choices(string.ascii_lowercase, k=random_email_sting_length)
-    )
+    random_string = "".join(random.choices(string.ascii_lowercase, k=random_email_sting_length))
 
     email = email_prefix + "_" + random_string + "@" + domain
 
@@ -22,6 +20,7 @@ def generate_random_email_and_password(domain=None, email_prefix=None):
     password_string = "".join(random.choices(string.ascii_letters, k=password_length))
 
     random_info = {"email": email, "password": password_string}
-    logger.debug(f"Randomly generated email and password: {random_info}")
+
+    logger.debug("Randomly generated email and password: %s", random_info)
 
     return random_info

@@ -1,5 +1,3 @@
-import random
-
 import allure
 import pytest
 
@@ -12,6 +10,7 @@ pytestmark = [pytest.mark.register, pytest.mark.smoke]
 @pytest.mark.usefixtures("setup")
 class TestCreateAccount:
     driver = None
+
     @allure.title("Test for create account that failed")
     def test_create_account_failed(self):
         my_account_page = MyAccountPage(self.driver)

@@ -31,7 +31,7 @@ class ProductListPage:
     product_price_xpath = (
         "//h2[text()='{}']/ancestor::li//span[@class='woocommerce-Price-amount amount']"
     )
-    product_button_xpath = "//h2[text()='" "{}" "']"
+    product_button_xpath = "//h2[text()='{}']"
     product_next_page_button = (By.PARTIAL_LINK_TEXT, "shop/page/{}")
 
 
