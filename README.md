@@ -6,10 +6,10 @@
 - Selenium
 - Pytest
 - Allure
-- pre-commit
+- Pre-commit
 - Black
 - Pylint
-
+- GitHub Actions
 ## Test Website
 
 - [mb-qa.eu](https://mb-qa.eu/)
