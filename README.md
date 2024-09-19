@@ -50,10 +50,13 @@ git commit -m "feat: add test script"
 
 If any issues are detected, pre-commit will block the commit and prompt you to fix the formatting or linting errors.
 
-## Optional Configuration for Black and Pylint
+## Optional Configuration for Black, Pylint, and Pre-commit
 
-Configuring Black
-To customize the behavior of Black, such as adjusting the maximum line length, modify a pyproject.toml.
+To customize the behavior of Black (the default formatter in this project), such as adjusting the maximum line length, modify the `pyproject.toml` file.
+
+To customize the behavior of Pylint, modify the `.pylintrc` file.
+
+To customize the behavior of Pre-commit, modify the `.pre-commit-config.yaml` file.
 
 ## Running the Tests
 
