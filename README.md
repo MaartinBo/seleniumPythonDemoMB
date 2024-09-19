@@ -53,7 +53,7 @@ If any issues are detected, pre-commit will block the commit and prompt you to f
 ## Optional Configuration for Black and Pylint
 
 Configuring Black
-To customize the behavior of Black, such as adjusting the maximum line length, create a pyproject.toml file with the following content:
+To customize the behavior of Black, such as adjusting the maximum line length, modify a pyproject.toml.
 
 ## Running the Tests
 
